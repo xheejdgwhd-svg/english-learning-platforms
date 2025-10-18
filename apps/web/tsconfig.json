@@ -1,28 +1,21 @@
-@"
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "jsx": "preserve",
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
+    "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@/lib/*": ["src/lib/*"]
-    },
-
-    "types": ["node"]
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": ["next", "next/types/global"]
   },
-  "include": ["next-env.d.ts", "src/**/*", "next.config.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
-"@ | Set-Content -Encoding UTF8 apps/web/tsconfig.json
