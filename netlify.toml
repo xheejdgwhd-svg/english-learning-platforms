@@ -4,7 +4,7 @@
   command = "npm ci && npx prisma generate && npm run build"
 
 [build.environment]
-  NODE_VERSION = "20.19.5"
+  NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
