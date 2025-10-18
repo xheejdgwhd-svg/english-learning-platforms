@@ -1,6 +1,8 @@
 services:
   db:
-    image: postgres:16-alpine
+    image: postgres:16
+    platform: linux/amd64
+    container_name: english-learning-db
     restart: unless-stopped
     ports:
       - "5432:5432"
@@ -10,5 +12,12 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
 volumes:
-  dbdata: {}
+  dbdata:
+    name: english-learning-dbdata

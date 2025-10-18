@@ -1,0 +1,10 @@
+[build]
+  base    = "apps/web"
+  publish = ".next"
+  command = "npm ci && npx prisma generate && npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
