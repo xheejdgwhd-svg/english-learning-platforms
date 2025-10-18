@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: English Learning Platform API
+  version: 0.1.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/me:
+    get:
+      summary: Current user profile
+      responses:
+        '200':
+          description: OK
+  /api/lessons:
+    get:
+      summary: List lessons (paginated)
+      responses: { '200': { description: OK } }
+    post:
+      summary: Create lesson (admin)
+      responses: { '201': { description: Created } }
+  /api/lessons/{id}:
+    get: { summary: Get lesson, responses: { '200': { description: OK } } }
+  /api/quizzes:
+    get: { summary: List quizzes, responses: { '200': { description: OK } } }
+    post: { summary: Create quiz (admin), responses: { '201': { description: Created } } }
+  /api/quiz-attempts:
+    post:
+      summary: Start/submit attempt
+      responses: { '201': { description: Created } }
+  /api/progress:
+    get: { summary: Get progress metrics, responses: { '200': { description: OK } } }
+  /api/drive/picker-token:
+    get: { summary: Short-lived token for Google Picker, responses: { '200': { description: OK } } }
+components: {}
